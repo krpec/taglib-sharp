@@ -1981,6 +1981,32 @@ namespace TagLib
 		}
 
 		/// <summary>
+		///		Gets and sets the Soundlabel.cz UFID
+		/// </summary>
+		public override string LabelUFID {
+			get {
+				foreach (Tag tag in tags)
+				{
+					if (tag == null)
+						continue;
+
+					string value = tag.LabelUFID;
+
+					if (value != null)
+						return value;
+				}
+
+				return null;
+			}
+
+			set {
+				foreach (Tag tag in tags)
+					if (tag != null)
+						tag.LabelUFID = value;
+			}
+		}
+
+		/// <summary>
 		///    Gets whether or not the current instance is empty.
 		/// </summary>
 		/// <value>

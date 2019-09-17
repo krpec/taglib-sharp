@@ -1080,6 +1080,14 @@ namespace TagLib
 		}
 
 		/// <summary>
+		///		Gets and sets the UFID value.
+		/// </summary>
+		public virtual string LabelUFID {
+			get { return null; }
+			set { }
+		}
+
+		/// <summary>
 		///    Gets and sets the same value as <see cref="Performers"
 		///    />.
 		/// </summary>

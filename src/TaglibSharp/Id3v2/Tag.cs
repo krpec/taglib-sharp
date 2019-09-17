@@ -651,6 +651,16 @@ namespace TagLib.Id3v2
 			return tag_data;
 		}
 
+		/// <summary>
+		///		Gets the UFID frame text for given owner.
+		/// </summary>
+		/// <param name="owner"></param>
+		/// <returns>string</returns>
+		public string GetUFID(string owner)
+		{
+			return GetUfidText(owner);
+		}
+
 		#endregion
 
 
@@ -2277,6 +2287,23 @@ namespace TagLib.Id3v2
 		public override string ISRC {
 			get { return GetTextAsString (FrameType.TSRC); }
 			set { SetTextFrame (FrameType.TSRC, value); }
+		}
+
+		/// <summary>
+		///    Gets and sets the MusicBrainz TrackID
+		/// </summary>
+		/// <value>
+		///    A <see cref="string" /> containing the MusicBrainz
+		///    TrackID for the media described by the current 
+		///    instance, or null if no value is present. 
+		/// </value>
+		/// <remarks>
+		///    This property is implemented using the "UFID:http://musicbrainz.org" frame.
+		///    http://musicbrainz.org/doc/PicardTagMapping
+		/// </remarks>
+		public override string LabelUFID {
+			get { return GetUfidText ("sndlabel.cz"); }
+			set { SetUfidText ("sndlabel.cz", value); }
 		}
 
 		/// <summary>
